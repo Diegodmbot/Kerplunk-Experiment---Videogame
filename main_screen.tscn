@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu7nor4ywuasd"]
+
+[ext_resource type="Script" path="res://MainScreen.gd" id="1_jfufm"]
+
+[node name="MainScreen" type="Node2D"]
+script = ExtResource("1_jfufm")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 528.0
+offset_top = 192.0
+offset_right = 637.0
+offset_bottom = 269.0
+scale = Vector2(0.938141, 0.927599)
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Controls" type="Button" parent="."]
+offset_left = 472.0
+offset_top = 304.0
+offset_right = 686.0
+offset_bottom = 381.0
+scale = Vector2(0.998117, 1)
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 520.0
+offset_top = 424.0
+offset_right = 618.0
+offset_bottom = 501.0
+scale = Vector2(1.18159, 1.18159)
+theme_override_font_sizes/font_size = 50
+text = "Exit
+"
+
+[node name="Credits" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Credits"]
+offset_left = 888.0
+offset_top = 16.0
+offset_right = 1149.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 23
+text = "Sprites Authors:
+- Elthen's Pixel Art Shop
+- ikoiku
+- SurfaceToAsh
+- Crusenho"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

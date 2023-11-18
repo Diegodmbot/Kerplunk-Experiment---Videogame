@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://icldqldf24st"]
+
+[sub_resource type="Environment" id="Environment_4ugbb"]
+background_mode = 3
+ambient_light_energy = 5.8
+adjustment_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_4ugbb")

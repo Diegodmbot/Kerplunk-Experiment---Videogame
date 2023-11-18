@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://dobj8mc4aeqea"]
+
+[ext_resource type="Texture2D" uid="uid://g4t4hn01ouri" path="res://sprites/laberinto.png" id="2_j4q0b"]
+[ext_resource type="Texture2D" uid="uid://cvw4aoth7iux7" path="res://sprites/square.png" id="5_ba4he"]
+[ext_resource type="Texture2D" uid="uid://dvm82r2rlp0up" path="res://sprites/Green.png" id="6_chfaa"]
+[ext_resource type="Texture2D" uid="uid://6h1ctximnarb" path="res://sprites/Blue.png" id="6_j2qur"]
+[ext_resource type="Texture2D" uid="uid://5okf4306lyu6" path="res://sprites/Red.png" id="8_hghmc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7oygp"]
+resource_name = "Wall"
+texture = ExtResource("5_ba4he")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmdj4"]
+resource_name = "No Physics"
+texture = ExtResource("5_ba4he")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sg1a"]
+texture = ExtResource("6_j2qur")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vyjjg"]
+resource_name = "Green"
+texture = ExtResource("6_chfaa")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2mtt"]
+texture = ExtResource("8_hghmc")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_2bqh2"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7oygp")
+sources/1 = SubResource("TileSetAtlasSource_jmdj4")
+sources/3 = SubResource("TileSetAtlasSource_vyjjg")
+sources/2 = SubResource("TileSetAtlasSource_0sg1a")
+sources/4 = SubResource("TileSetAtlasSource_d2mtt")
+
+[node name="RedMap" type="Node2D"]
+
+[node name="Laberinto" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(462, 328)
+scale = Vector2(2.31628, 1.60748)
+texture = ExtResource("2_j4q0b")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2bqh2")
+format = 2
+layer_0/tile_data = PackedInt32Array(262163, 3, 0, 262164, 3, 0, 262165, 3, 0, 1638444, 3, 0, 1703980, 3, 0, 1769516, 3, 0, 2424845, 3, 0, 2490381, 3, 0, 2555917, 3, 0, 458797, 3, 0, 458798, 3, 0, 458799, 3, 0, 983067, 2, 0, 983068, 2, 0, 983069, 2, 0, 983070, 2, 0, 1048586, 2, 0, 1114122, 2, 0, 1179658, 2, 0, 655408, 2, 0, 720944, 2, 0, 786480, 2, 0, 1703949, 2, 0, 1769485, 2, 0, 1835021, 2, 0)

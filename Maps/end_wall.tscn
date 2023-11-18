@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi8iyuu3m3si2"]
+
+[ext_resource type="Texture2D" uid="uid://g4t4hn01ouri" path="res://sprites/laberinto.png" id="1_myonq"]
+[ext_resource type="TileSet" uid="uid://cj65yk6nf6v4t" path="res://Maps/tileSet.tres" id="2_x1aon"]
+
+[node name="EndWall" type="Node2D"]
+
+[node name="Laberinto" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(462, 328)
+scale = Vector2(2.31628, 1.60748)
+texture = ExtResource("1_myonq")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_x1aon")
+format = 2
+layer_0/tile_data = PackedInt32Array(2424883, 5, 0, 2490419, 5, 0, 2555955, 5, 0, 2621491, 5, 0)
