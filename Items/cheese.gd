@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "MainCharacter":
-		Game.level_ended = true 
+		Game.actual_state = Game.game_states.WON
 		var picked_tween = get_tree().create_tween()
 		picked_tween.tween_property(self, "position", position - Vector2(0,35), 0.3)
 		picked_tween.tween_property(self, "modulate:a", 0, 0.2)

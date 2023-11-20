@@ -6,6 +6,7 @@ var red_level = preload("res://Maps/red_map.tscn")
 var blue_level = preload("res://Maps/blue_map.tscn")
 var green_level = preload("res://Maps/green_map.tscn")
 
+@onready var time = 0
 
 func change_light_color():
 	Game.set_random_actual_color()
@@ -22,11 +23,26 @@ func load_color_map():
 	actual_level = $Level1.get_child(-1)
 	
 func _ready():
+	Game.change_actual_state(Game.game_states.PLAYING)
+	Game.actual_color = Game.game_states.PLAYING
 	Utils.save_game()
 	change_light_color()
 	load_color_map()
 	GlobalWorldEnvironment.environment.adjustment_brightness = 1
+	if Game.best_time != 1000000:
+		$CanvasLayer/Label2.text = "Best Time: " + str(Game.best_time)
+	else:
+		$CanvasLayer/Label2.text = "" 
 
+func _process(delta):
+	time += delta
+	$CanvasLayer/Label.text = str(int(time))
+	if Game.actual_state == Game.game_states.WON:
+		Game.set_best_time(time)
+		Utils.save_game()
+		get_tree().change_scene_to_file("res://main_screen.tscn")
+	if Game.actual_state == Game.game_states.LOSE:
+		get_tree().change_scene_to_file("res://main_screen.tscn")
 func _on_light_timer_timeout():
 	GlobalWorldEnvironment.environment.adjustment_brightness = 0
 	change_light_color()

@@ -6,8 +6,7 @@ const SAVE_PATH = "res://savegame.bin"
 func save_game():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
-		"points": Game.points,
-		"actual_color": Game.actual_color,
+		"best_time": Game.best_time
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
@@ -18,7 +17,6 @@ func load_game():
 		if not file.eof_reached():
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
-				Game.points = current_line["points"] 
-				Game.actual_color = current_line["actual_color"] 
-				
+				Game.best_time = current_line["best_time"]
+
 

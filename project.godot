@@ -20,7 +20,11 @@ Game="*res://Global/Game.gd"
 Utils="*res://Global/Utils.gd"
 GlobalWorldEnvironment="*res://Global/world_environment.tscn"
 
+[navigation]
+
+2d/default_edge_connection_margin=8
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.654902, 0.654902, 0.654902, 1)
+environment/defaults/default_clear_color=Color(0.117647, 0.117647, 0.117647, 1)

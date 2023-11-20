@@ -14,15 +14,6 @@ scale = Vector2(0.938141, 0.927599)
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Controls" type="Button" parent="."]
-offset_left = 472.0
-offset_top = 304.0
-offset_right = 686.0
-offset_bottom = 381.0
-scale = Vector2(0.998117, 1)
-theme_override_font_sizes/font_size = 50
-text = "Controls"
-
 [node name="Exit" type="Button" parent="."]
 offset_left = 520.0
 offset_top = 424.0

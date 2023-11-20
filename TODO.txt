@@ -1,8 +1,5 @@
 TO DO LIST:
-- Mapa 
-- Movimiento de los enemigos
-- Botón y puerta final
+
 - Música
-- Animaciones
-- Poner + niveles
-- Contador para el ranking
+
+- Accesibilidad
