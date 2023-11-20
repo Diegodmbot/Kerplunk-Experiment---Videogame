@@ -29,6 +29,7 @@ func _ready():
 	change_light_color()
 	load_color_map()
 	GlobalWorldEnvironment.environment.adjustment_brightness = 1
+	self
 	if Game.best_time != 1000000:
 		$CanvasLayer/Label2.text = "Best Time: " + str(Game.best_time)
 	else:
@@ -37,11 +38,14 @@ func _ready():
 func _process(delta):
 	time += delta
 	$CanvasLayer/Label.text = str(int(time))
+	
 	if Game.actual_state == Game.game_states.WON:
 		Game.set_best_time(time)
 		Utils.save_game()
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://main_screen.tscn")
 	if Game.actual_state == Game.game_states.LOSE:
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://main_screen.tscn")
 func _on_light_timer_timeout():
 	GlobalWorldEnvironment.environment.adjustment_brightness = 0
@@ -54,3 +58,4 @@ func _on_darkness_timer_timeout():
 	GlobalWorldEnvironment.environment.adjustment_brightness = 1
 	$Darkness_Timer.stop()
 	$Light_Timer.start()
+

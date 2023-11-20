@@ -7,24 +7,27 @@ extends CharacterBody2D
 @onready var anim = $AnimationPlayer
 @onready var is_moving_backwards = false
 @onready var can_move: bool = false
-
+@onready var is_attacking: bool = false
 
 func _ready():
 	update_path()
 
 func _process(delta):
-	if velocity == Vector2(0,0):
-		$AnimationPlayer.play("Idle")
+	if not is_attacking:
+		if velocity == Vector2(0,0):
+			$AnimationPlayer.play("Idle")
+		else: 
+			$AnimationPlayer.play("Run") 
+		if GlobalWorldEnvironment.environment.adjustment_brightness == 0:
+			can_move = false
+		else:
+			can_move = true
+		if velocity[0] < 0:
+			is_moving_backwards = true
+		if velocity[0] > 0:
+			is_moving_backwards = false
 	else: 
-		$AnimationPlayer.play("Run") 
-	if GlobalWorldEnvironment.environment.adjustment_brightness == 0:
-		can_move = false
-	else:
-		can_move = true
-	if velocity[0] < 0:
-		is_moving_backwards = true
-	if velocity[0] > 0:
-		is_moving_backwards = false
+		$AnimationPlayer.play("Attack")
 
 func _physics_process(delta):
 	if can_move:
@@ -42,6 +45,7 @@ func _on_update_timeout():
 
 func _on_death_detector_body_entered(body):
 	if body.name == "MainCharacter":
+		is_attacking = true
 		Game.change_actual_state(Game.game_states.LOSE)
 
 

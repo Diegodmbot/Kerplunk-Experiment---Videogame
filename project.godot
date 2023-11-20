@@ -14,11 +14,19 @@ config/name="MermeladaJam"
 run/main_scene="res://main_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 Game="*res://Global/Game.gd"
 Utils="*res://Global/Utils.gd"
 GlobalWorldEnvironment="*res://Global/world_environment.tscn"
+
+[display]
+
+window/size/resizable=false
 
 [navigation]
 
